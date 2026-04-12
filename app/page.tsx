@@ -90,7 +90,7 @@ export default function Home() {
                     Sou Desenvolvedor Full-stack com formação em **Gestão de TI**. Minha paixão é construir ferramentas que aceleram a entrega de software, unindo a robustez do **Python** com a fluidez do **React**.
                   </p>
                   <p>
-                    Atualmente, sigo na criação de aplicações web e trazendo soluções, como o meu projeto **Resume Score**, que utiliza APIs inteligentes para análise estratégica de currículos.
+                    Atualmente, sigo na criação de aplicações web e trazendo soluções práticas, como o meu projeto **Resume Score**, que utiliza APIs inteligentes para análise estratégica de currículos.
                   </p>
                 </div>
 
