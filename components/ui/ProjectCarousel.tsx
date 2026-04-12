@@ -9,7 +9,10 @@ export default function ProjectCarousel() {
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center", duration: 30 },
+    { loop: true,
+     align: "center",
+     containScroll: false, // Adicione isso para ele não tentar "prender" nas pontas
+     duration: 30 },
     [Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })]
   );
 
@@ -34,10 +37,16 @@ export default function ProjectCarousel() {
 
   return (
     <div className="w-full py-10">
-      <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
-        <div className="flex ml-[calc((100vw-1440px)/2)] md:ml-[10%]">
+      {/* Removemos qualquer padding lateral aqui para o cálculo ser 100% da tela */}
+      <div className="overflow-hidden w-full" ref={emblaRef}>
+        <div className="flex -ml-4"> {/* O margin-left negativo compensa o px-4 dos cards */}
           {projects.map((project, index) => (
-            <div key={index} className="flex-[0_0_85%] md:flex-[0_0_480px] min-w-0 px-4 snap-center">
+            <div
+              key={index}
+              // flex-[0_0_80%] deixa 10% de cada lado para os cards vizinhos no mobile
+              // md:flex-[0_0_480px] mantém o tamanho fixo no PC
+              className="flex-[0_0_80%] md:flex-[0_0_480px] min-w-0 pl-4"
+            >
               <ProjectCard {...project} />
             </div>
           ))}
@@ -47,24 +56,23 @@ export default function ProjectCarousel() {
       {/* OS PONTOS (INDICADORES ESTILO APPLE) */}
       {/* SEÇÃO DE CONTROLES (PONTOS + BOTÃO) */}
       <div className="flex justify-center items-center gap-4 mt-10">
-        
+
         {/* Container dos Pontos */}
         <div className="flex gap-3">
           {scrollSnaps.map((_, index) => (
             <button
               key={index}
               onClick={() => emblaApi?.scrollTo(index)}
-              className={`transition-all duration-500 rounded-full h-2 ${
-                index === selectedIndex 
-                  ? "w-8 bg-gray-800" 
+              className={`transition-all duration-500 rounded-full h-2 ${index === selectedIndex
+                  ? "w-8 bg-gray-800"
                   : "w-2 bg-gray-300 hover:bg-gray-400"
-              }`}
+                }`}
             />
           ))}
         </div>
 
         {/* BOTÃO DE CONTROLE (Igual ao da Apple) */}
-        <button 
+        <button
           onClick={() => {
             const autoplay = emblaApi?.plugins().autoplay;
             if (!autoplay) return;
@@ -75,7 +83,7 @@ export default function ProjectCarousel() {
         >
           {/* O ícone muda dependendo se está rodando ou não */}
           <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
           </svg>
         </button>
 
