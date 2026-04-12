@@ -1,65 +1,213 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+// Mudamos o @/ para ../ para o Next.js encontrar os arquivos com certeza
+import Navbar from "../components/ui/Navbar";
+import ProjectCard from "../components/ui/ProjectCard";
+import ProjectCarousel from "../components/ui/ProjectCarousel";
+
+export const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }} // Começa invisível e 30px abaixo
+    whileInView={{ opacity: 1, y: 0 }} // Quando entra na tela, sobe e aparece
+    viewport={{ once: true, margin: "-100px" }} // "once: true" faz animar só uma vez
+    transition={{
+      duration: 0.8,
+      delay: delay,
+      ease: [0.21, 0.47, 0.32, 0.98] // Essa curva "Beziér" é idêntica à da Apple
+    }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="min-h-screen bg-[#f5f5f7]">
+      <Navbar />
+
+      <div className="w-full pt-32 pb-20 px-6">
+        <header className="mb-20 px-6 md:px-20 max-w-[1440px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tighter text-[#1d1d1f]">
+              André Luiz <br />
+              <span className="text-gray-400">Software Developer</span>
+            </h1>
+          </motion.div>
+        </header>
+
+        {/* Seção de Stacks */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="flex flex-wrap justify-center gap-3 mb-20 max-w-4xl mx-auto px-6"
+        >
+          {["Python", "React", "TypeScript", "JavaScript", "Tailwind CSS", "Next.js"].map((stack) => (
+            <span
+              key={stack}
+              className="px-6 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-[#1d1d1f] shadow-sm hover:border-black transition-colors cursor-default"
+            >
+              {stack}
+            </span>
+          ))}
+        </motion.div>
+
+        {/* SEÇÃO SOBRE MIM - FAIXA FULL-WIDTH ESTILO APPLE */}
+        <section id="sobre" className="w-full bg-white border-y border-gray-100 py-24 md:py-32">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-20">
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+            >
+
+              {/* Lado da Foto */}
+              <div className="flex justify-center relative order-2 md:order-1">
+                <div className="relative">
+                  <img
+                    src="/Andre_web_2.png"
+                    alt="André Luiz"
+                    className="w-72 h-72 md:w-96 md:h-96 rounded-full object-cover shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-50 transition-transform duration-700 hover:scale-105"
+                  />
+                  {/* Efeito de iluminação suave atrás da foto */}
+                  <div className="absolute -z-10 inset-0 bg-blue-100/30 rounded-full blur-3xl" />
+                </div>
+              </div>
+
+              {/* Lado do Texto */}
+              <div className="order-1 md:order-2">
+                <h2 className="text-4xl md:text-6xl font-bold text-[#1d1d1f] mb-8 tracking-tight">
+                  Sobre mim
+                </h2>
+
+                <div className="space-y-6 text-lg md:text-xl text-[#86868b] leading-relaxed">
+                  <p>
+                    Sou Desenvolvedor Full-stack com formação em **Gestão de TI**. Minha paixão é construir ferramentas que aceleram a entrega de software, unindo a robustez do **Python** com a fluidez do **React**.
+                  </p>
+                  <p>
+                    Atualmente, foco em dominar ferramentas de IA para automação, como o meu projeto **Resume Score**, que utiliza APIs inteligentes para análise estratégica de currículos.
+                  </p>
+                </div>
+
+                {/* Botões de Ação */}
+                <div className="mt-12 flex flex-wrap gap-5">
+                  <a
+                    href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+                    target="_blank"
+                    className="px-10 py-4 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition-all shadow-md active:scale-95"
+                  >
+                    Download CV
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/andreluizas/"
+                    target="_blank"
+                    className="px-10 py-4 border border-gray-200 text-[#1d1d1f] rounded-full font-semibold hover:bg-gray-50 transition-all active:scale-95"
+                  >
+                    LinkedIn
+                  </a>
+                </div>
+              </div>
+
+            </motion.div>
+          </div>
+        </section>
+
+        {/* SEÇÃO DE PROJETOS COM EFEITO DEGRADÊ NAS LATERAIS */}
+        <section id="projetos" className="w-full mb-32 relative">
+
+          {/* Título */}
+          <FadeIn>
+            <div className="px-6 md:px-20 max-w-[1440px] mx-auto mb-12">
+              <h2 className="text-4xl font-bold text-[#1d1d1f] tracking-tight">Projetos</h2>
+            </div>
+          </FadeIn>
+
+          {/* Container Principal com as Máscaras de Gradiente */}
+          <div className="relative w-full overflow-hidden">
+
+            {/* Degradê da ESQUERDA (Esconde o card surgindo) */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-[#f5f5f7] to-transparent pointer-events-none" />
+
+            {/* O CARROSSEL */}
+            <ProjectCarousel />
+
+            {/* Degradê da DIREITA (Esconde o card sumindo) */}
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-[#f5f5f7] to-transparent pointer-events-none" />
+
+          </div>
+        </section>
+        {/* SEÇÃO DE PROJETOS - TERMINA AQUI */}
+
+        {/* RODAPÉ */}
+        <footer className="border-t border-gray-200 pt-16 pb-12 bg-white/30 backdrop-blur-sm">
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+
+              {/* Lado Esquerdo: Info */}
+              <div>
+                <h3 className="text-xl font-bold text-[#1d1d1f]">André Luiz</h3>
+                <p className="text-[#86868b] mt-2">Desenvolvedor Full-stack</p>
+              </div>
+
+              {/* Lado Direito: Links Sociais */}
+              <div className="flex gap-8">
+                <a
+                  href="https://www.linkedin.com/in/andreluizas/"
+                  target="_blank"
+                  className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="https://github.com/avfoto81"
+                  target="_blank"
+                  className="text-[#1d1d1f] font-medium hover:text-gray-600 transition-colors"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="mailto:andredeveloper81@gmail.com"
+                  className="text-[#1d1d1f] font-medium hover:text-orange-600 transition-colors"
+                >
+                  E-mail
+                </a>
+
+                <a
+                  href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+                  target="_blank"
+                  className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
+                >
+                  Resume.pdf
+                </a>
+
+                <a
+                  href="https://wa.me/5521991259018"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#1d1d1f] font-medium hover:text-green-600 transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </div>
+            </div>
+
+            {/* Linha Final de Copyright */}
+            <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
+              <p>© 2026 André Luiz. Todos os direitos reservados.</p>
+              <p>Desenvolvido com Next.js & Tailwind CSS v4</p>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+    </main>
   );
 }
