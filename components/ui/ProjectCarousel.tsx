@@ -37,7 +37,7 @@ export default function ProjectCarousel() {
       <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
         <div className="flex ml-[calc((100vw-1440px)/2)] md:ml-[10%]">
           {projects.map((project, index) => (
-            <div key={index} className="flex-[0_0_85%] md:flex-[0_0_480px] min-w-0 px-4">
+            <div key={index} className="flex-[0_0_85%] md:flex-[0_0_480px] min-w-0 px-4 snap-center">
               <ProjectCard {...project} />
             </div>
           ))}
