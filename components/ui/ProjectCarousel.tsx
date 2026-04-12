@@ -30,7 +30,7 @@ export default function ProjectCarousel() {
   }, [emblaApi, onSelect]);
 
   const projects = [
-    { title: "Site Igreja", description: "Portal completo com sistema de eventos.", thumbnail: "/site-iaci.jpg", videoSrc: "/Telas_video.mp4" },
+    { title: "Site Igreja", description: "Portal completo com sistema de eventos.", thumbnail: "/site-iaci.jpg", videoSrc: "/Page_igreja.mp4" },
     { title: "Institutional Site", description: "Site moderno e responsivo.", thumbnail: "/Telas_site_2.jpg", videoSrc: "/Telas_video.mp4" },
     { title: "Conversor PDF JPG", description: "Conversor de PDF para JPG.", thumbnail: "/Macbook.jpg", videoSrc: "/Tela_conversor.mp4" },
   ];
