@@ -93,121 +93,118 @@ export default function Home() {
                     Sou Desenvolvedor Full-stack com formação em **Gestão de TI**. Minha paixão é construir ferramentas que aceleram a entrega de software, unindo a robustez do **Python** com a fluidez do **React**.
                   </p>
                   <p>
-                    Atualmente, foco em dominar ferramentas de IA para automação, como o meu projeto **Resume Score**, que utiliza APIs inteligentes para análise estratégica de currículos.
+                    Atualmente, foco em dominar ferramentas de IA para automação e trazendo soluções com tecnologias atuais,
                   </p>
-                </div>
+                  <p>
+                    como o meu projeto **Resume Score**, que utiliza APIs inteligentes para análise estratégica de currículos.
+                  </p>
 
-                {/* Botões de Ação */}
-                <div className="mt-12 flex flex-wrap gap-5">
-                  <a
-                    href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
-                    target="_blank"
-                    className="px-10 py-4 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition-all shadow-md active:scale-95"
-                  >
-                    Download CV
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/andreluizas/"
-                    target="_blank"
-                    className="px-10 py-4 border border-gray-200 text-[#1d1d1f] rounded-full font-semibold hover:bg-gray-50 transition-all active:scale-95"
-                  >
-                    LinkedIn
-                  </a>
                 </div>
               </div>
 
+              {/* Botões de Ação */}
+              <div className="mt-12 flex flex-wrap gap-5">
+                <a
+                  href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+                  target="_blank"
+                  className="px-10 py-4 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition-all shadow-md active:scale-95"
+                >
+                  Download CV
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/andreluizas/"
+                  target="_blank"
+                  className="px-10 py-4 border border-gray-200 text-[#1d1d1f] rounded-full font-semibold hover:bg-gray-50 transition-all active:scale-95"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* SEÇÃO DE PROJETOS COM EFEITO DEGRADÊ NAS LATERAIS */}
+        {/* SEÇÃO DE PROJETOS COM EFEITO DEGRADÊ NAS LATERAIS */ }
         <section id="projetos" className="w-full mb-32 relative">
 
-          {/* Título */}
-          <FadeIn>
-            <div className="px-6 md:px-20 max-w-[1440px] mx-auto mb-12">
-              <h2 className="text-4xl font-bold text-[#1d1d1f] tracking-tight">Projetos</h2>
-            </div>
-          </FadeIn>
-
-          {/* Container Principal com as Máscaras de Gradiente */}
-          <div className="relative w-full overflow-hidden">
-
-            {/* Degradê da ESQUERDA (Esconde o card surgindo) */}
-            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-[#f5f5f7] to-transparent pointer-events-none" />
-
-            {/* O CARROSSEL */}
-            <ProjectCarousel />
-
-            {/* Degradê da DIREITA (Esconde o card sumindo) */}
-            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-[#f5f5f7] to-transparent pointer-events-none" />
-
-          </div>
-        </section>
-        {/* SEÇÃO DE PROJETOS - TERMINA AQUI */}
-
-        {/* RODAPÉ */}
-        <footer className="border-t border-gray-200 pt-16 pb-12 bg-white/30 backdrop-blur-sm">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-
-              {/* Lado Esquerdo: Info */}
-              <div>
-                <h3 className="text-xl font-bold text-[#1d1d1f]">André Luiz</h3>
-                <p className="text-[#86868b] mt-2">Desenvolvedor Full-stack</p>
-              </div>
-
-              {/* Lado Direito: Links Sociais */}
-              <div className="flex gap-8">
-                <a
-                  href="https://www.linkedin.com/in/andreluizas/"
-                  target="_blank"
-                  className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://github.com/avfoto81"
-                  target="_blank"
-                  className="text-[#1d1d1f] font-medium hover:text-gray-600 transition-colors"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="mailto:andredeveloper81@gmail.com"
-                  className="text-[#1d1d1f] font-medium hover:text-orange-600 transition-colors"
-                >
-                  E-mail
-                </a>
-
-                <a
-                  href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
-                  target="_blank"
-                  className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
-                >
-                  Resume.pdf
-                </a>
-
-                <a
-                  href="https://wa.me/5521991259018"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1d1d1f] font-medium hover:text-green-600 transition-colors"
-                >
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-
-            {/* Linha Final de Copyright */}
-            <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
-              <p>© 2026 André Luiz. Todos os direitos reservados.</p>
-              <p>Desenvolvido com Next.js & Tailwind CSS v4</p>
-            </div>
-          </div>
-        </footer>
-
+    {/* Título */}
+    <FadeIn>
+      <div className="px-6 md:px-20 max-w-[1440px] mx-auto mb-12">
+        <h2 className="text-4xl font-bold text-[#1d1d1f] tracking-tight">Projetos</h2>
       </div>
-    </main>
+    </FadeIn>
+
+    {/* Container Principal com as Máscaras de Gradiente */}
+    <div className="relative w-full overflow-hidden">
+
+      {/* Degradê da ESQUERDA (Esconde o card surgindo) */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-[#f5f5f7] to-transparent pointer-events-none" />
+
+      {/* O CARROSSEL */}
+      <ProjectCarousel />
+
+      {/* Degradê da DIREITA (Esconde o card sumindo) */}
+      <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-[#f5f5f7] to-transparent pointer-events-none" />
+
+    </div>
+  </section>
+  {/* SEÇÃO DE PROJETOS - TERMINA AQUI */ }
+
+  {/* RODAPÉ */ }
+  <footer className="border-t border-gray-200 pt-16 pb-12 bg-white/30 backdrop-blur-sm">
+    <div className="max-w-6xl mx-auto px-6">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+
+        {/* Lado Esquerdo: Info */}
+        <div>
+          <h3 className="text-xl font-bold text-[#1d1d1f]">André Luiz</h3>
+          <p className="text-[#86868b] mt-2">Desenvolvedor Full-stack</p>
+        </div>
+
+        {/* Lado Direito: Links Sociais */}
+        <div className="flex gap-8">
+          <a
+            href="https://www.linkedin.com/in/andreluizas/"
+            target="_blank"
+            className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/avfoto81"
+            target="_blank"
+            className="text-[#1d1d1f] font-medium hover:text-gray-600 transition-colors"
+          >
+            GitHub
+          </a>
+          
+          <a
+            href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+            target="_blank"
+            className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
+          >
+            Resume.pdf
+          </a>
+
+          <a
+            href="https://wa.me/5521991259018"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#1d1d1f] font-medium hover:text-green-600 transition-colors"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      {/* Linha Final de Copyright */}
+      <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
+        <p>© 2026 André Luiz. Todos os direitos reservados.</p>
+        <p>Desenvolvido com Next.js & Tailwind CSS v4</p>
+      </div>
+    </div>
+  </footer>
+
+      </div >
+    </main >
   );
 }
