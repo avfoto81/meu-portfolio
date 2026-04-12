@@ -44,8 +44,8 @@ export default function ProjectCarousel() {
             <div
               key={index}
               // flex-[0_0_80%] deixa 10% de cada lado para os cards vizinhos no mobile
-              // md:flex-[0_0_480px] mantém o tamanho fixo no PC
-              className="flex-[0_0_80%] md:flex-[0_0_480px] min-w-0 pl-4"
+              // md:flex-[0_0_600px] mantém o tamanho fixo no PC
+              className="flex-[0_0_80%] md:flex-[0_0_600px] min-w-0 pl-4 snap-center"
             >
               <ProjectCard {...project} />
             </div>
