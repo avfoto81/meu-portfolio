@@ -163,7 +163,7 @@ export default function Home() {
         {/* SEÇÃO DE PROJETOS - TERMINA AQUI */}
 
         {/* RODAPÉ */}
-        <footer className="border-t border-gray-200 pt-16 pb-12 bg-white/30 backdrop-blur-sm">
+        <footer id="contato" className="border-t border-gray-200 pt-16 pb-12 bg-white/30 backdrop-blur-sm">
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
 
@@ -173,50 +173,55 @@ export default function Home() {
                 <p className="text-[#86868b] mt-2">Desenvolvedor Full-stack</p>
               </div>
 
-              {/* Lado Direito: Links Sociais com Ícones */}
-              <div className="flex gap-6">
-                <a
-                  href="https://www.linkedin.com/in/andreluizas/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#86868b] hover:text-[#0077b5] transition-all duration-300 hover:scale-110"
-                >
-                  <AiFillLinkedin size={26} />
-                </a>
+              <div className="flex flex-col gap-4">
+                {/* O Título agora fica em cima */}
+                <h3 className="text-xl font-bold text-[#1d1d1f]">Contato</h3>
 
-                <a
-                  href="https://github.com/avfoto81"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#86868b] hover:text-[#1d1d1f] transition-all duration-300 hover:scale-110"
-                >
-                  <AiFillGithub size={26} />
-                </a>
+                {/* Esta nova div organiza os ícones em linha (row) abaixo do título */}
+                <div className="flex gap-6">
+                  <a
+                    href="https://www.linkedin.com/in/andreluizas/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#86868b] hover:text-[#0077b5] transition-all duration-300 hover:scale-110"
+                  >
+                    <AiFillLinkedin size={26} />
+                  </a>
 
-                <a
-                  href="/curriculo.pdf" // O Next.js entende que deve buscar na pasta public
-                  download="Curriculo_Andre_Luiz.pdf" // Força o download e define o nome do arquivo salvo
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#86868b] hover:text-blue-600 transition-all duration-300 hover:scale-110"
-                >
-                  <AiOutlineFileText size={26} />
-                </a>
+                  <a
+                    href="https://github.com/avfoto81"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#86868b] hover:text-[#1d1d1f] transition-all duration-300 hover:scale-110"
+                  >
+                    <AiFillGithub size={26} />
+                  </a>
 
-                <a
-                  href="https://wa.me/5521991259018"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#86868b] hover:text-[#25D366] transition-all duration-300 hover:scale-110"
-                >
-                  <AiOutlineWhatsApp size={26} />
-                </a>
+                  <a
+                    href="/curriculo.pdf" // O Next.js entende que deve buscar na pasta public
+                    download="Curriculo_Andre_Luiz.pdf" // Força o download e define o nome do arquivo salvo
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#86868b] hover:text-blue-600 transition-all duration-300 hover:scale-110"
+                  >
+                    <AiOutlineFileText size={26} />
+                  </a>
+
+                  <a
+                    href="https://wa.me/5521991259018"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#86868b] hover:text-[#25D366] transition-all duration-300 hover:scale-110"
+                  >
+                    <AiOutlineWhatsApp size={26} />
+                  </a>
+                </div>
               </div>
 
               {/* Linha Final de Copyright */}
               <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
                 <p>© 2026 André Luiz. Todos os direitos reservados.</p>
-                
+
               </div>
             </div>
           </div>
