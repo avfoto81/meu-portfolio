@@ -73,15 +73,16 @@ export default function Home() {
         {/* SEÇÃO SOBRE MIM - FAIXA FULL-WIDTH ESTILO APPLE */}
         <section id="sobre" className="w-full bg-white border-y border-gray-100 py-24 md:py-32">
           <div className="max-w-[1440px] mx-auto px-6 md:px-20">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
-            >
-              {/* Lado da Foto */}
-              <div className="flex justify-center relative order-2 md:order-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+              {/* Lado da Foto - Anima primeiro */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="flex justify-center relative order-2 md:order-1"
+              >
                 <div className="relative">
                   <img
                     src="/Andre_web_2.png"
@@ -90,28 +91,34 @@ export default function Home() {
                   />
                   <div className="absolute -z-10 inset-0 bg-blue-100/30 rounded-full blur-3xl" />
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Lado do Texto - AGORA COM OS BOTÕES DENTRO */}
-              <div className="order-1 md:order-2">
+              {/* Lado do Texto - Anima com um pequeno atraso (delay) */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="order-1 md:order-2"
+              >
                 <h2 className="text-4xl md:text-6xl font-bold text-[#1d1d1f] mb-8 tracking-tight">
                   Sobre mim
                 </h2>
 
                 <div className="space-y-6 text-lg md:text-xl text-[#86868b] leading-relaxed">
                   <p>
-                    Sou Desenvolvedor Full-stack com formação em **Gestão de TI**. Minha paixão é construir ferramentas que aceleram a entrega de software, unindo a robustez do **Python** com a fluidez do **React**.
+                    Sou Desenvolvedor Front-end com foco na construção de aplicações web modernas, performáticas e escaláveis. Atuo com React, TypeScript, JavaScript, Vite e Tailwind CSS, desenvolvendo interfaces responsivas e organizadas com base em boas práticas, componentização e Clean Code.
                   </p>
                   <p>
                     Atualmente, sigo na criação de aplicações web e trazendo soluções práticas, como o meu projeto **Resume Score**, que utiliza APIs inteligentes para análise estratégica de currículos.
                   </p>
                 </div>
 
-                {/* BOTÕES DENTRO DA COLUNA DE TEXTO */}
+                {/* BOTÕES */}
                 <div className="mt-12 flex flex-wrap gap-5">
                   <a
-                    href="/Resume_andre_dev.pdf" // O Next.js entende que deve buscar na pasta public
-                    download="Resume_Andre_desenvolvedor.pdf" // Força o download e define o nome do arquivo salvo
+                    href="/Resume_andre_dev.pdf"
+                    download="Resume_Andre_desenvolvedor.pdf"
                     className="px-10 py-4 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition-all shadow-md active:scale-95"
                   >
                     Download CV
@@ -124,8 +131,8 @@ export default function Home() {
                     LinkedIn
                   </a>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -187,7 +194,8 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="https://drive.google.com/uc?export=download&id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+                  href="/curriculo.pdf" // O Next.js entende que deve buscar na pasta public
+                  download="Curriculo_Andre_Luiz.pdf" // Força o download e define o nome do arquivo salvo
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#86868b] hover:text-blue-600 transition-all duration-300 hover:scale-110"
