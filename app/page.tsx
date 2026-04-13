@@ -1,5 +1,6 @@
 "use client";
 
+import { AiFillLinkedin, AiFillGithub, AiOutlineFileText, AiOutlineWhatsApp } from "react-icons/ai";
 import { motion } from "framer-motion";
 // Mudamos o @/ para ../ para o Next.js encontrar os arquivos com certeza
 import Navbar from "../components/ui/Navbar";
@@ -47,14 +48,26 @@ export default function Home() {
           transition={{ delay: 0.5 }}
           className="flex flex-wrap justify-center gap-3 mb-20 max-w-4xl mx-auto px-6"
         >
-          {["Python", "React", "TypeScript", "JavaScript", "Tailwind CSS", "Next.js"].map((stack) => (
-            <span
-              key={stack}
-              className="px-6 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-[#1d1d1f] shadow-sm hover:border-black transition-colors cursor-default"
-            >
-              {stack}
-            </span>
-          ))}
+          {["Python", "React", "TypeScript", "JavaScript", "Tailwind CSS", "Next.js"].map((stack) => {
+            // Mapeamento sutil de cores estilo Apple
+            const colors: { [key: string]: string } = {
+              "Python": "bg-blue-50 text-blue-600 border-blue-100",
+              "React": "bg-cyan-50 text-cyan-600 border-cyan-100",
+              "TypeScript": "bg-indigo-50 text-indigo-600 border-indigo-100",
+              "JavaScript": "bg-yellow-50 text-yellow-700 border-yellow-100",
+              "Tailwind CSS": "bg-sky-50 text-sky-600 border-sky-100",
+              "Next.js": "bg-gray-50 text-gray-800 border-gray-200",
+            };
+
+            return (
+              <span
+                key={stack}
+                className={`px-5 py-1.5 border rounded-full text-xs font-semibold shadow-sm transition-all hover:scale-105 cursor-default ${colors[stack] || "bg-gray-50 text-gray-600 border-gray-100"}`}
+              >
+                {stack}
+              </span>
+            );
+          })}
         </motion.div>
 
         {/* SEÇÃO SOBRE MIM - FAIXA FULL-WIDTH ESTILO APPLE */}
@@ -97,8 +110,8 @@ export default function Home() {
                 {/* BOTÕES DENTRO DA COLUNA DE TEXTO */}
                 <div className="mt-12 flex flex-wrap gap-5">
                   <a
-                    href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
-                    target="_blank"
+                    href="/Resume_andre_dev.pdf" // O Next.js entende que deve buscar na pasta public
+                    download="Resume_Andre_desenvolvedor.pdf" // Força o download e define o nome do arquivo salvo
                     className="px-10 py-4 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition-all shadow-md active:scale-95"
                   >
                     Download CV
@@ -153,46 +166,50 @@ export default function Home() {
                 <p className="text-[#86868b] mt-2">Desenvolvedor Full-stack</p>
               </div>
 
-              {/* Lado Direito: Links Sociais */}
-              <div className="flex gap-8">
+              {/* Lado Direito: Links Sociais com Ícones */}
+              <div className="flex gap-6">
                 <a
                   href="https://www.linkedin.com/in/andreluizas/"
                   target="_blank"
-                  className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
+                  rel="noopener noreferrer"
+                  className="text-[#86868b] hover:text-[#0077b5] transition-all duration-300 hover:scale-110"
                 >
-                  LinkedIn
-                </a>
-                <a
-                  href="https://github.com/avfoto81"
-                  target="_blank"
-                  className="text-[#1d1d1f] font-medium hover:text-gray-600 transition-colors"
-                >
-                  GitHub
+                  <AiFillLinkedin size={26} />
                 </a>
 
                 <a
-                  href="https://drive.google.com/open?id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+                  href="https://github.com/avfoto81"
                   target="_blank"
-                  className="text-[#1d1d1f] font-medium hover:text-blue-600 transition-colors"
+                  rel="noopener noreferrer"
+                  className="text-[#86868b] hover:text-[#1d1d1f] transition-all duration-300 hover:scale-110"
                 >
-                  Resume.pdf
+                  <AiFillGithub size={26} />
+                </a>
+
+                <a
+                  href="https://drive.google.com/uc?export=download&id=11BC9IwORJBAUva8J0h-kGthvY38T950A1LqT2x9jmKQ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#86868b] hover:text-blue-600 transition-all duration-300 hover:scale-110"
+                >
+                  <AiOutlineFileText size={26} />
                 </a>
 
                 <a
                   href="https://wa.me/5521991259018"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#1d1d1f] font-medium hover:text-green-600 transition-colors"
+                  className="text-[#86868b] hover:text-[#25D366] transition-all duration-300 hover:scale-110"
                 >
-                  WhatsApp
+                  <AiOutlineWhatsApp size={26} />
                 </a>
               </div>
-            </div>
 
-            {/* Linha Final de Copyright */}
-            <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
-              <p>© 2026 André Luiz. Todos os direitos reservados.</p>
-              <p>Desenvolvido com Next.js & Tailwind CSS v4</p>
+              {/* Linha Final de Copyright */}
+              <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
+                <p>© 2026 André Luiz. Todos os direitos reservados.</p>
+                <p>Desenvolvido com Next.js & Tailwind CSS v4</p>
+              </div>
             </div>
           </div>
         </footer>

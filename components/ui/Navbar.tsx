@@ -28,7 +28,7 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="font-bold text-[#1d1d1f] text-xl cursor-pointer"
         >
-          André Luiz
+          
         </button>
 
         {/* Links de Navegação */}
