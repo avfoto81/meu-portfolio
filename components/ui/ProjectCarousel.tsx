@@ -33,7 +33,7 @@ export default function ProjectCarousel() {
     { title: "Site Igreja", description: "Site para apresentar a Igreja.", thumbnail: "/site-iaci.jpg", videoSrc: "/Page_igreja.mp4" },
     { title: "Institutional Site", description: "Site moderno e responsivo de psicólogo.", thumbnail: "/Telas_site_2.jpg", videoSrc: "/Telas_video.mp4" },
     { title: "Conversor PDF JPG", description: "Conversor de PDF para JPG.", thumbnail: "/Macbook.jpg", videoSrc: "/Tela_conversor.mp4" },
-    { title: "Análise ATS", description: "Análise de currículo com sistema ATS conforme a vaga escolhida", thumbnail: "/Tela_resume_ats.jpg", videoSrc: "/Tela_resume_ats_02" },
+    { title: "Análise de currículo ATS", description: "Análise de currículo com sistema ATS conforme a vaga escolhida", thumbnail: "/Tela_resume_ats.jpg", videoSrc: "/Tela_resume_ats_02" },
   ];
 
   return (
