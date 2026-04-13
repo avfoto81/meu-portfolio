@@ -216,7 +216,7 @@ export default function Home() {
               {/* Linha Final de Copyright */}
               <div className="mt-16 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-[#86868b]">
                 <p>© 2026 André Luiz. Todos os direitos reservados.</p>
-                <p>Desenvolvido com Next.js & Tailwind CSS v4</p>
+                
               </div>
             </div>
           </div>
